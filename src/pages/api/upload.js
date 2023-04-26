@@ -61,7 +61,7 @@ export default async (req, res) => {
       }
 
       const oldPath = files.file.filepath
-      const newPath = `${process.env.PUBLIC_URL}/images/${files.file.originalFilename}`
+      const newPath = `./public/images/${files.file.originalFilename}`
       console.log('OLD PATH: ', oldPath)
       console.log('NEW PATH: ', newPath)
 
