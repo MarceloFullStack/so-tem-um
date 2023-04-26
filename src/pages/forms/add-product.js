@@ -149,7 +149,14 @@ export default function AddProduct() {
           accept=".jpg,.jpeg,.png"
           required
         />
-        {productData.image && <img src={productData.image} alt="Product" />}
+        {productData.image && (
+          <Image
+            src={productData.image}
+            alt="Product"
+            width="288"
+            height="320"
+          />
+        )}
       </div>
 
       <button
