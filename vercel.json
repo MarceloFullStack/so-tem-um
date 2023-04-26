@@ -13,9 +13,11 @@
       "dest": "api/upload.js"
     }
   ],
-  "public": {
-    "upload": "public/images",
-    "images": {
+  "files": {
+    "public/images/*": {
+      "write": true
+    },
+    "data.json": {
       "write": true
     }
   }
