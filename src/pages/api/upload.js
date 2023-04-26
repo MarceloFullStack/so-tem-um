@@ -61,7 +61,9 @@ export default async (req, res) => {
       }
 
       const oldPath = files.file.filepath
-      const newPath = `./public/images/${files.file.originalFilename}`
+      const newPath = `${
+        process.env.VERCEL_URL ? process.env.VERCEL_URL : './public'
+      }/images/${files.file.originalFilename}`
       console.log('OLD PATH: ', oldPath)
       console.log('NEW PATH: ', newPath)
 
