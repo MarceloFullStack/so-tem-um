@@ -13,10 +13,13 @@
       "dest": "api/upload.js"
     }
   ],
-  "files": {
-    "public/images/*": {
+  "public": {
+    "upload": "public/images",
+    "images": {
       "write": true
-    },
+    }
+  },
+  "files": {
     "data.json": {
       "write": true
     }
