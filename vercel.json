@@ -13,8 +13,9 @@
         "dest": "api/upload.js",
         "config": {
           "fs": {
-            "public": {
-              "upload": true
+            "public/images": {
+                "upload": true,
+                "write": true    
             },
             "data.json": {
               "write": true
