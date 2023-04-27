@@ -1,10 +1,12 @@
 {
-    "build": {
-      "env": {
-        "SKIP_PREFLIGHT_CHECK": "true"
+    "routes": [
+      {
+        "src": "/upload",
+        "dest": "/api/upload"
       }
-    },
-    "filesystem": {
-      "public": "public"
+    ],
+    "static": {
+      "directory": "public/images",
+      "publicPath": "/images"
     }
   }
