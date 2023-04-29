@@ -7,7 +7,7 @@ const products = [
     description: 'Description test 1',
     price: 'R$ 100,00',
     active: true,
-    whatsappLink: 'https://wa.me/123456789',
+    whatsappNumber: 'https://wa.me/123456789',
   },
   {
     image: '/images/f88-tws-bluetooth-esportivo.jpeg',
@@ -15,7 +15,7 @@ const products = [
     description: 'Description test 2',
     price: 'R$ 200,00',
     active: false,
-    whatsappLink: 'https://wa.me/123456789',
+    whatsappNumber: 'https://wa.me/123456789',
   },
   {
     image: '/images/fone-estereo-ossea-sem-fio.jpeg',
@@ -23,7 +23,7 @@ const products = [
     description: 'Description test 3',
     price: 'R$ 300,00',
     active: true,
-    whatsappLink: 'https://wa.me/123456789',
+    whatsappNumber: 'https://wa.me/123456789',
   },
   {
     image: '/images/k20-fone-bluetooth.jpeg',
@@ -31,7 +31,7 @@ const products = [
     description: 'Description test 4',
     price: 'R$ 400,00',
     active: false,
-    whatsappLink: 'https://wa.me/123456789',
+    whatsappNumber: 'https://wa.me/123456789',
   },
   {
     image: '/images/mini-auto-falante-led.jpeg',
@@ -39,7 +39,7 @@ const products = [
     description: 'Description test 5',
     price: 'R$ 500,00',
     active: true,
-    whatsappLink: 'https://wa.me/123456789',
+    whatsappNumber: 'https://wa.me/123456789',
   },
 ]
 

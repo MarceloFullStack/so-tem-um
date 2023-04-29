@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import InputMask from 'react-input-mask'
 
 export default function AddProduct() {
   const { isAuthenticated } = useAuth()
@@ -13,11 +14,12 @@ export default function AddProduct() {
     description: '',
     price: 0,
     active: true,
-    whatsappLink: '',
+    whatsappNumber: '',
     createdAt: new Date().toISOString(),
   })
 
   const [imageFile, setImageFile] = useState(null)
+  const [phoneNumber, setPhoneNumber] = useState('')
   const [router] = useState(useRouter())
 
   const handleChange = (event) => {
@@ -26,6 +28,7 @@ export default function AddProduct() {
       ...prevState,
       [name]: value,
     }))
+    setPhoneNumber(value.replace(/\D/g, ''))
   }
 
   const handleImageChange = (event) => {
@@ -46,7 +49,7 @@ export default function AddProduct() {
       formData.append('description', productData.description)
       formData.append('price', productData.price)
       formData.append('active', productData.active)
-      formData.append('whatsappLink', productData.whatsappLink)
+      formData.append('whatsappNumber', phoneNumber)
 
       const response = await fetch('/api/upload', {
         method: 'POST',
@@ -133,16 +136,17 @@ export default function AddProduct() {
 
       <div className="mb-6">
         <label
-          htmlFor="whatsappLink"
+          htmlFor="whatsappNumber"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Link do WhatsApp
         </label>
-        <input
+        <InputMask
+          mask="(99) 99999-9999"
           type="text"
-          name="whatsappLink"
-          id="whatsappLink"
-          value={productData.whatsappLink}
+          name="whatsappNumber"
+          id="whatsappNumber"
+          value={productData.whatsappNumber}
           onChange={handleChange}
           required
           className="w-full p-2 border rounded-md outline-none"

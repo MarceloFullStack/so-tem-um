@@ -23,10 +23,10 @@ async function saveData(data) {
     const imageDir = path.join(process.cwd(), 'public', 'images')
 
     // Verifica se o diretório de imagens existe
-    if (!fs.existsSync(imageDir)) {
-      await fs.mkdir(imageDir, { recursive: true })
-      console.log('Diretório de imagens criado com sucesso.')
-    }
+    // if (!fs.existsSync(imageDir)) {
+    //   await fs.mkdir(imageDir, { recursive: true })
+    //   console.log('Diretório de imagens criado com sucesso.')
+    // }
 
     const product = {
       ...data,
@@ -77,7 +77,7 @@ export default async (req, res) => {
           description: fields.description,
           price: fields.price,
           active: fields.active,
-          whatsappLink: fields.whatsappLink,
+          whatsappNumber: fields.whatsappNumber,
         }
 
         resolve(data)

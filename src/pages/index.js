@@ -33,7 +33,7 @@ export default function HomeContext() {
                 description: product.description,
                 price: product.price,
                 image: product.image,
-                number: product.whatsappLink,
+                number: product.whatsappNumber,
               })}
             />
           ))}
