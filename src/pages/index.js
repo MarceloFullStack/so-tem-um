@@ -5,6 +5,12 @@ import ProductCard from '../components/ProductCard'
 
 export default function HomeContext() {
   const { products } = useContext(ProductContext)
+
+  const whatsapp = ({ title, description, price, image, number }) => {
+    const message = `Olá, estou interessado(a) no produto ${title}. `
+    const info = `Segue abaixo as informações:\n\nNome: ${title}\nDescrição: ${description}\nPreço: ${price}`
+    return `https://wa.me/${number}?text=${encodeURIComponent(message + info)}`
+  }
   return (
     <main>
       <Header />
@@ -20,7 +26,13 @@ export default function HomeContext() {
               description={product.description}
               price={product.price}
               active={product.active ? 'Ativo' : 'Inativo'}
-              whatsapp={product.whatsappLink}
+              whatsapp={whatsapp({
+                title: product.title,
+                description: product.description,
+                price: product.price,
+                image: product.image,
+                number: product.whatsappLink,
+              })}
             />
           ))}
         </div>
