@@ -16,11 +16,7 @@ export default function Login() {
       console.log('erro!!!')
     }
   }
-  console.log('USERNAME -- ', username)
-  console.log('PASSWORD -- ', password)
 
-  console.log('USERNAME .ENV -- ', process.env.LOGIN_USERNAME)
-  console.log('PASSWORD .ENV -- ', process.env.LOGIN_PASSWORD)
   return (
     <div>
       <h2>Login</h2>
