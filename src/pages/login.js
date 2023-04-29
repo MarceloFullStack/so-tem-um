@@ -1,62 +1,42 @@
+import { useAuth } from '@/contexts/AuthContext'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
-const PAGE_TITLE = 'Login'
-const users = [
-  {
-    username: 'admin',
-    password: '123456',
-  },
-]
+
 export default function Login() {
-  const [userData, setUserData] = useState({
-    username: '',
-    password: '',
-  })
-  const router = useRouter()
-  const handleChange = (event) => {
-    const { name, value } = event.target
-    setUserData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }))
-  }
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const user = users.find(
-      (user) =>
-        user.username === userData.username &&
-        user.password === userData.password,
-    )
-    if (user) {
-      router.push('/add-product')
+  const { login } = useAuth()
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleLogin = () => {
+    if (
+      process.env.LOGIN_USERNAME === username &&
+      process.env.LOGIN_PASSWORD === password
+    ) {
+      login()
     } else {
-      alert('Usuário ou senha inválidos.')
+      console.log('erro!!!')
     }
   }
+  console.log('USERNAME -- ', username)
+  console.log('PASSWORD -- ', password)
+
+  console.log('USERNAME .ENV -- ', process.env.LOGIN_USERNAME)
+  console.log('PASSWORD .ENV -- ', process.env.LOGIN_PASSWORD)
   return (
     <div>
-      <h1>{PAGE_TITLE}</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Usuário:
-          <input
-            type="text"
-            name="username"
-            value={userData.username}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Senha:
-          <input
-            type="password"
-            name="password"
-            value={userData.password}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit">Entrar</button>
-      </form>
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
     </div>
   )
 }

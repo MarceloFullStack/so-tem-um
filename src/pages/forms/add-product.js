@@ -1,8 +1,12 @@
+import { useAuth } from '@/contexts/AuthContext'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 export default function AddProduct() {
+  const { isAuthenticated } = useAuth()
+
   const [productData, setProductData] = useState({
     image: '',
     title: '',
@@ -59,6 +63,16 @@ export default function AddProduct() {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <p>
+        Você precisa estar logado para acessar esta página. <br />
+        <br />
+        <Link href="/login">Fazer Login</Link>
+      </p>
+    )
   }
 
   return (
